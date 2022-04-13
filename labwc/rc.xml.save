@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+
+<!--
+  This is a very simple config file with many options missing. For a complete
+  set of options with comments, see docs/rc.xml.all
+-->
+
+<labwc_config>
+
+  <core>
+    <gap>10</gap>
+  </core>
+
+  <theme>
+    <name>Combine</name>
+    <cornerRadius>8</cornerRadius>
+    <font><name>Inter</name><size>10</size></font>
+  </theme>
+
+  <keyboard>
+    <default />
+    <keybind key="W-Return">
+      <action name="Execute"><command>foot</command></action>
+    </keybind>
+    <keybind key="XF86_AudioLowerVolume">
+      <action name="Execute"><command>amixer sset Master 5%-</command></action>
+    </keybind>
+    <keybind key="XF86_AudioRaiseVolume">
+      <action name="Execute"><command>amixer sset Master 5%+</command></action>
+    </keybind>
+    <keybind key="XF86_AudioMute">
+      <action name="Execute"><command>amixer sset Master
+      toggle</command></action>
+    </keybind>
+    <keybind key="W+F9">
+      <action name="Execute"><command>brightnessctl set +10%</command></action>
+    </keybind> <keybind key="XF86_MonBrightnessDown">
+      <action name="Execute"><command>brightnessctl set 10%-</command></action>
+    </keybind>
+  </keyboard>
+
+</labwc_config>
+
