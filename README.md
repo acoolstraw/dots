@@ -1,8 +1,6 @@
 # dots
 Dotfiles for my Arch system, running LabWC
 
-**`Combine`** should be moved to `.local/share/themes/` (create if needed)
-
 # Configuration Files
 
 ## `~/.config`:
