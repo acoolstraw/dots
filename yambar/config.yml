@@ -1,0 +1,93 @@
+# Typical laptop setup, with wifi, brightness, battery etc, for
+# i3/Sway.
+
+# For X11/i3, you'll want to replace calls to swaymsg with i3-msg, and
+# the sway-xkb module with the xkb module.
+
+# fonts we'll be re-using here and there
+awesome: &awesome Font Awesome 5 Free:style=solid:pixelsize=14
+awesome_brands: &awesome_brands Font Awesome 5 Brands:pixelsize=16
+
+std_underline: &std_underline {underline: { size: 2, color: ff0000ff}}
+
+# This is THE bar configuration
+bar:
+  height: 20
+  location: top
+  margin: 0
+
+  # Default font
+  font: JetBrains Mono:pixelsize=14
+
+  foreground: ccccccff
+  background: 1d1f23ff
+
+  right:
+    - mem:
+        interval: 2500
+        content:
+          - string: {text: "{used:mb} MB "}
+          - string: {text: "({percent_used}%)"}
+    - label:
+        content:
+          - string: {text: "|", foreground: 363840ff, left-margin: 5, right-margin: 5}
+    - battery:
+        name: BAT0
+        poll-interval: 15
+        anchors:
+          discharging: &discharging
+            list:
+              items:
+                - ramp:
+                    tag: capacity
+                    items:
+                      - string: {text: , foreground: ff0000ff, font: *awesome}
+                      - string: {text: , foreground: ffa600ff, font: *awesome}
+                      - string: {text: , font: *awesome}
+                      - string: {text: , font: *awesome}
+                      - string: {text: , font: *awesome}
+                      - string: {text: , font: *awesome}
+                      - string: {text: , font: *awesome}
+                      - string: {text: , font: *awesome}
+                      - string: {text: , font: *awesome}
+                      - string: {text: , foreground: 5fd85bff, font: *awesome}
+                - string: {text: "{capacity}%"}
+        content:
+          map:
+            tag: state
+            values:
+              unknown:
+                <<: *discharging
+              discharging:
+                <<: *discharging
+              charging:
+                - string: {text: " ", foreground: 5fd85bff, font: *awesome}
+                - string: {text: "{capacity}%"}
+              full:
+                - string: {text: " ", foreground: 5fd85bff, font: *awesome}
+                - string: {text: "{capacity}%"}
+              not charging:
+                - ramp:
+                    tag: capacity
+                    items:
+                      - string: {text: " ", foreground: e53743ff, font: *awesome}
+                      - string: {text: " ", foreground: e53743ff, font: *awesome}
+                      - string: {text: " ", foreground: eb9750ff, font: *awesome}
+                      - string: {text: " ", foreground: eb9750ff, font: *awesome}
+                      - string: {text: " ", foreground: f0cc74ff, font: *awesome}
+                      - string: {text: " ", foreground: f0cc74ff, font: *awesome}
+                      - string: {text: " ", foreground: 5fd85bff, font: *awesome}
+                      - string: {text: " ", foreground: 5fd85bff, font: *awesome}
+                      - string: {text: " ", foreground: 5fd85bff, font: *awesome}
+                      - string: {text: " ", foreground: 5fd85bff, font: *awesome}
+                - string: {text: "{capacity}%"}
+    - label:
+        content:
+          - string: {text: "|", foreground: 363840ff, left-margin: 5, right-margin: 5}
+    - clock:
+        time-format: "%H:%M"
+        date-format: "%a %B %d %Y"
+        content:
+          - string: {text: "{time}"}
+          - string: {text: "|", foreground: 363840ff, left-margin: 5, right-margin: 5}
+          - string: {text: "{date}", right-margin: 5}
