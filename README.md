@@ -3,22 +3,22 @@ Dotfiles for my Arch system, running LabWC
 
 # Configuration Files
 
-## `~/.config`:
+### `~/.config`:
 - `foot`
 - `labwc`
 - `yambar`
 - `chromium-flags.conf`
 - `user-dirs.dirs`
 
-## `/etc`:
+### `/etc`:
 - `nano/nanorc`
 
-## `/usr/share/nano-syntax-highlighting`
+### `/usr/share/nano-syntax-highlighting`
 - `nano/crystal.nanorc`
 
 # Themes
 
-# `~/.local/share/themes`:
+### `~/.local/share/themes`:
 - `Combine`
 
 # Known Issues
